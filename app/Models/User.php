@@ -12,6 +12,11 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    // Definieer de relatie met de blogs
+    public function blogs()
+    {
+        return $this->hasMany(BlogModel::class); // Een gebruiker kan meerdere blogs hebben
+    }
     /**
      * The attributes that are mass assignable.
      *

@@ -13,26 +13,8 @@ Route::middleware(['auth'])->group(function () {
     // About pagina
     Route::get('/about', [HomeController::class, 'about'])->name('about');
 
-    // Resource routes voor blogposts, behalve index
+    // Resource routes voor blogposts
     Route::resource('blog', PostController::class)->except(['index']);
-
-    // Toon het formulier om een nieuwe blogpost te maken
-    Route::get('/blog/create', [PostController::class, 'create'])->name('blog.create');
-
-    // Toon individuele blogpost
-    Route::get('/blog/{blog}', [PostController::class, 'show'])->name('blog.show');
-
-    // Bewerken van een blogpost
-    Route::get('/blog/{blog}/edit', [PostController::class, 'edit'])->name('blog.edit');
-
-    // Updaten van de blogpost
-    Route::put('/blog/{blog}', [PostController::class, 'update'])->name('blog.update');
-
-    // Blogpost opslaan
-    Route::post('/blog/store', [PostController::class, 'store'])->name('blog.store');
-
-    // Blogpost verwijderen
-    Route::delete('/blog/{blog}', [PostController::class, 'destroy'])->name('blog.destroy');
 });
 
 // Guest routes (alleen voor niet-ingelogde gebruikers)

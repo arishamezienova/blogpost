@@ -20,6 +20,14 @@
                         </h2>
 
                         <p>{{$post->content}}</p>
+                        <!--Hier tonen we de gebruiker die het bericht heeft geplaatst-->
+                        <small>Gemaakt door:
+                            @if($post->user)
+                                {{$post->user->name}}
+                            @else
+                                Onbekend
+                            @endif
+                        </small>
                     </div>
                 </div>
             @endforeach
